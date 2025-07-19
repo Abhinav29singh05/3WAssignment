@@ -10,8 +10,8 @@ const MONGO_URI = process.env.MONGO_URI;
 // Middleware
 app.use(cors({
   origin: [
-    'https://3-w-assignment-ivory.vercel.app', // Production frontend
-    'http://localhost:3000' // Local frontend (optional, for development)
+    'https://3-w-assignment-cyan.vercel.app',  // your new Vercel domain
+    'http://localhost:3000'                    // for local development
   ]
 }));
 
