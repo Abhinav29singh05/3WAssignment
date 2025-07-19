@@ -12,6 +12,7 @@ app.use(cors({
   origin: 'https://3-w-assignment-ivory.vercel.app'
 }));
 
+
 app.use(express.json());
 
 // Import routes
