@@ -9,7 +9,10 @@ const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware
 app.use(cors({
-  origin: 'https://3-w-assignment-ivory.vercel.app'
+  origin: [
+    'https://3-w-assignment-ivory.vercel.app', // Production frontend
+    'http://localhost:3000' // Local frontend (optional, for development)
+  ]
 }));
 
 
@@ -22,7 +25,13 @@ const claimRoutes = require('./routes/claimRoutes');
 // Use routes
 app.use('/api/users', userRoutes);
 app.use('/api/claim', claimRoutes);
+// Leaderboard endpoint is handled by userRoutes, accessible at /api/leaderboard
 app.use('/api/leaderboard', userRoutes); // For leaderboard endpoint if needed
+
+// Health check route
+app.get('/', (req, res) => {
+  res.send('Backend server is running!');
+});
 
 // MongoDB connection
 mongoose.connect(MONGO_URI, {
@@ -36,6 +45,3 @@ mongoose.connect(MONGO_URI, {
 .catch(err => {
   console.error('MongoDB connection error:', err);
 }); 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
