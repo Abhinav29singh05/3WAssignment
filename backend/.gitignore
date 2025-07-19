@@ -1,0 +1,9 @@
+# Ignore node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Build directories (if using React/Vite/Next.js etc.)
+dist
+build
