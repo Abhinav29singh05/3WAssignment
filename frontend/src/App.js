@@ -4,7 +4,7 @@ import Header from './components/Header.jsx';
 import UserManagement from './components/UserManagement.jsx';
 import Leaderboard from './components/Leaderboard.jsx';
 
-const API_URL = 'https://3wassignment-production.up.railway.app';
+const API_URL = 'https://3wassignment-production-d538.up.railway.app/api';
 
 function App() {
   const [users, setUsers] = useState([]);
