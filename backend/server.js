@@ -8,7 +8,10 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://3-w-assignment-ivory.vercel.app'
+}));
+
 app.use(express.json());
 
 // Import routes
@@ -32,3 +35,6 @@ mongoose.connect(MONGO_URI, {
 .catch(err => {
   console.error('MongoDB connection error:', err);
 }); 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
